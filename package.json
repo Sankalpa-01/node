@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "1-intro.js",
   "scripts": {
-    "start":"node app.js"
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
@@ -11,6 +11,7 @@
   "type": "commonjs",
   "description": "",
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
