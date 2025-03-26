@@ -1,22 +1,24 @@
-// npm - global command, comes with node
-// npm --version => to check which version is present in our system
+const http = require('http');
 
-// local dependency - use it only in this particulae project
-// npm i <packageName>
+const server = http.createServer((req, res) => {
+    if(req.url === '/'){
+        res.end('Home Page')
+    }
+    if(req.url === './about'){
+        // BLOCKING CODE !!
+        for(let i = 0;i<1000;i++)
+        {
+            for(let j = 0;j<1000;j++)
+            {
+                console.log(`${i} ${j}`);
+                
+            }
+        }
+        res.end('About Page')
+    }
+    res.end()
+})
 
-// global dependency - use it in any project
-// npm install -g <packageName>
-
-// 1:53:28 => write it
-// package.json - manifest file(stores important info about project/package)
-// npm init (step by step, press enter to skip)
-// npm init -y (everything default) => to download the package.json
-
-
-const _ = require('lodash');
-
-const items = [1, [2,[3,[4]]]]
-const newItems = _.flattenDeep(items);
-console.log(newItems);
-console.log("hello people");
-
+server.listen(5000, () => {
+    console.log('Server is listening on port 5000...');
+})
